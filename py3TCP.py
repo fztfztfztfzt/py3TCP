@@ -14,7 +14,7 @@ class py3TCP:
 			
 			# create formatter
 			fmt = "%(asctime)-15s %(levelname)s %(message)s"
-			datefmt = "%a %d %b %Y %H:%M:%S"
+			datefmt = "%Y-%m-%d %H:%M:%S"
 			formatter = logging.Formatter(fmt, datefmt)
 
 			# create file handler
