@@ -2,8 +2,7 @@ py3TCP
 =====
 About
 -----
-It is simple asynchronous Python 3 TCP server. 
-
+It is a simple Python 3 TCP server. 
 
 Environment
 ----------
