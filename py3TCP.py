@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from socket import *
 import asyncio
 import argparse

@@ -8,12 +8,19 @@ Environment
 ----------
 Python >= 3.5
 
+Install
+-------
+```bash
+git clone https://github.com/fztfztfztfzt/py3TCP
+cd py3TCP
+sudo python3 setup.py install
+```
 
 Usage
 -----
 Server:
 ```
-$ sudo python3 py3TCP.py -p 25000 -l py3TCP.log
+$ sudo py3TCP -p 25000 -l py3TCP.log
 Thu 13 Apr 2017 17:56:38 INFO Serving on ('127.0.0.1', 25000).
 Thu 13 Apr 2017 17:56:41 INFO Connection from ('127.0.0.1', 53720).
 Thu 13 Apr 2017 17:56:44 INFO Connection from ('127.0.0.1', 53721).
@@ -37,5 +44,4 @@ Hello
 
 TODO
 -----
-1.Make this project an installable package.
-2.Add test cases, and use travis.io for continuous testing.
+Add test cases, and use travis.io for continuous testing.
