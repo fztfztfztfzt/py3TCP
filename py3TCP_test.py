@@ -5,24 +5,6 @@ import socket
 import multiprocessing as mp
 
 class Test_py3TCP(unittest.TestCase):
-    def test_respond(self):
-        def server():
-            TCPserver = py3TCP(26000,"py3TCP.log")
-            TCPserver.start()
-        def client(q):
-            TCPclient = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            TCPclient.connect(('127.0.0.1', 26000))
-            TCPclient.send("Hello World\n".encode())
-            q.put(TCPclient.recv(1024))
-            TCPclient.close()
-        q = mp.Queue()
-        s = mp.Process(target=server)
-        c = mp.Process(target=client, args=(q,))
-        s.start()
-        c.start()
-        c.join()
-        s.terminate()
-        self.assertEqual(q.get(),b'11\n')
 
     def test_asyncio(self):
         def server():
