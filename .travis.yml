@@ -5,4 +5,4 @@ python:
 install:
   - sudo python setup.py install
 # command to run tests
-script: sudo python -m unittest py3TCP_test
+script: sudo python3 -m unittest py3TCP_test
