@@ -1,5 +1,7 @@
 py3TCP
 =====
+[![Build Status](https://travis-ci.org/fztfztfztfzt/py3TCP.svg?branch=master)](https://travis-ci.org/fztfztfztfzt/py3TCP)
+
 About
 -----
 * It is a simple Python 3 TCP server.
