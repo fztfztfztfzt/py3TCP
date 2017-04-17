@@ -5,6 +5,24 @@ import socket
 import multiprocessing as mp
 
 class Test_py3TCP(unittest.TestCase):
+    def test_respond(self):
+        def server():
+            TCPserver = py3TCP(26000,"py3TCP.log")
+            TCPserver.start()
+        def client(q):
+            TCPclient = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            TCPclient.connect(('127.0.0.1', 26000))
+            TCPclient.send("Hello abcd\n".encode())
+            q.put(TCPclient.recv(1024))
+            TCPclient.close()
+        q = mp.Queue()
+        s = mp.Process(target=server)
+        c = mp.Process(target=client, args=(q,))
+        s.start()
+        c.start()
+        c.join()
+        s.terminate()
+        self.assertEqual(q.get(),b'10\n')
 
     def test_asyncio(self):
         def server():
@@ -15,7 +33,7 @@ class Test_py3TCP(unittest.TestCase):
             TCPclient1.connect(('127.0.0.1', 25000))
             TCPclient2 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             TCPclient2.connect(('127.0.0.1', 25000))
-            TCPclient2.send("Hello World\n".encode())
+            TCPclient2.send("Hello abcd\n".encode())
             q2.put(TCPclient2.recv(1024))
             TCPclient2.close()
             TCPclient1.send("Hello\n".encode())
@@ -31,7 +49,7 @@ class Test_py3TCP(unittest.TestCase):
         c.join()
         s.terminate()
         self.assertEqual(q1.get(),b'5\n')
-        self.assertEqual(q2.get(),b'11\n')
+        self.assertEqual(q2.get(),b'10\n')
 
 if __name__ == '__main__':
     unittest.main()
