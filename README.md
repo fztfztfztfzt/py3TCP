@@ -2,7 +2,9 @@ py3TCP
 =====
 About
 -----
-It is a simple Python 3 TCP server. 
+* It is a simple Python 3 TCP server.
+* It can receive bytes from clients and after this it can respond to the clients with the number of bytes received and terminate the connection to the client.
+* The server can handle multiple concurrent TCP connections.
 
 Environment
 ----------
@@ -11,9 +13,9 @@ Python >= 3.5
 Install
 -------
 ```bash
-git clone https://github.com/fztfztfztfzt/py3TCP
-cd py3TCP
-sudo python3 setup.py install
+$ git clone https://github.com/fztfztfztfzt/py3TCP
+$ cd py3TCP
+$ sudo python3 setup.py install
 ```
 
 Usage
@@ -40,6 +42,12 @@ Client2:
 $ netcat 127.0.0.1 25000
 Hello
 5
+```
+
+Running tests
+-------------
+```python3
+python3 -m unittest py3TCP_test
 ```
 
 TODO
