@@ -23,11 +23,13 @@ Usage
 Server:
 ```
 $ sudo py3TCP -p 25000 -l py3TCP.log
-Thu 13 Apr 2017 17:56:38 INFO Serving on ('127.0.0.1', 25000).
-Thu 13 Apr 2017 17:56:41 INFO Connection from ('127.0.0.1', 53720).
-Thu 13 Apr 2017 17:56:44 INFO Connection from ('127.0.0.1', 53721).
-Thu 13 Apr 2017 17:56:56 INFO Received 11 bytes from ('127.0.0.1', 53720).
-Thu 13 Apr 2017 17:57:02 INFO Received 5 bytes from ('127.0.0.1', 53721).
+2017-04-17 09:51:06 INFO Serving on ('127.0.0.1', 25000).
+2017-04-17 09:51:19 INFO Connection from ('127.0.0.1', 52731).
+2017-04-17 09:51:26 INFO Connection from ('127.0.0.1', 52732).
+2017-04-17 09:51:32 INFO Received 11 bytes from ('127.0.0.1', 52731).
+2017-04-17 09:51:32 INFO Connection from ('127.0.0.1', 52731) was terminated.
+2017-04-17 09:51:37 INFO Received 5 bytes from ('127.0.0.1', 52732).
+2017-04-17 09:51:37 INFO Connection from ('127.0.0.1', 52732) was terminated.
 ```
 
 Client1:
@@ -49,7 +51,3 @@ Running tests
 ```python3
 python3 -m unittest py3TCP_test
 ```
-
-TODO
------
-Add test cases, and use travis.io for continuous testing.
