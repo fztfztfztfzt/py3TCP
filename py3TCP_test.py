@@ -3,6 +3,7 @@ import unittest
 from py3TCP import py3TCP
 import socket
 import multiprocessing as mp
+import time
 
 class Test_py3TCP(unittest.TestCase):
     def test_respond(self):
@@ -19,6 +20,7 @@ class Test_py3TCP(unittest.TestCase):
         s = mp.Process(target=server)
         c = mp.Process(target=client, args=(q,))
         s.start()
+        time.sleep(1)
         c.start()
         c.join()
         s.terminate()
@@ -45,6 +47,7 @@ class Test_py3TCP(unittest.TestCase):
         s = mp.Process(target=server)
         c = mp.Process(target=client, args=(q1,q2,))
         s.start()
+        time.sleep(1)
         c.start()
         c.join()
         s.terminate()
